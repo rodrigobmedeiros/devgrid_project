@@ -1,12 +1,13 @@
 import json
 
 class SetConfig():
-
+    """
+    class responsible
+    """
     def __init__(self):
 
         self.url_weather_api = None
-        self.x_rapidapi_key = None
-        self.x_rapidapi_host = None
+        self.headers = None
         self.read_config_file()
 
     def read_config_file(self):
@@ -16,5 +17,4 @@ class SetConfig():
             config_info = json.load(config_file)
 
         self.url_weather_api = config_info["url-weather-api"]
-        self.x_rapidapi_key = config_info["headers"]["x-rapidapi-key"]
-        self.x_rapidapi_host = config_info["headers"]["x-rapidapi-host"]
+        self.headers = config_info["headers"]
