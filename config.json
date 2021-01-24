@@ -1,5 +1,5 @@
 {
-    "url_weather_api": "https://community-open-weather-map.p.rapidapi.com/weather",
+    "url-weather-api": "https://community-open-weather-map.p.rapidapi.com/weather",
     "headers":{
         "x-rapidapi-key": "48fb4ad818mshaff694231397f7fp1acde1jsn23c32d3bd5b8",
         "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
