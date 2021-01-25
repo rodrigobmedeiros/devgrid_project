@@ -2,7 +2,7 @@ import json
 
 class SetConfig():
     """
-    class responsible
+    class responsible to load configuration info from config.json file
     """
     def __init__(self):
 
