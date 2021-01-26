@@ -150,8 +150,8 @@ Obs: For more information access the [Flask Documentation](https://flask.pallets
 
 - `/<user_defined_id>`: Receive an user_defined_id, get all city_id's from user_defined_id.txt file, connect to open weather API, collect information and store into the database.
 
-Ex: Considering localhost 127.0.0.1:5000\
-127.0.0.1:5000/1000 is an example where 1000 is a user_defined_id.\
+Ex: Considering localhost 127.0.0.1:5000
+127.0.0.1:5000/1000 is an example where 1000 is a user_defined_id.
 
 For each city_id, three information are stored in three different columns.
 - `user_defined_id`
@@ -162,8 +162,8 @@ For each city_id, three information are stored in three different columns.
 
 - `/status/<user_defined_id>`: Receive the user_defind_id and make a query to the database looking for all entries for this user. Return a percentage of progress considering how many cities was collect in comparison of how many city_id's are present into the txt file.
 
-Ex: Considering localhost 127.0.0.1:5000\
-127.0.0.1:5000/status/1000 is an example where 1000 is the user_defined_id. A query is done using this id, returning all entries for this specific user. After that a progress percentage is calculated.\
+Ex: Considering localhost 127.0.0.1:5000
+127.0.0.1:5000/status/1000 is an example where 1000 is the user_defined_id. A query is done using this id, returning all entries for this specific user. After that a progress percentage is calculated.
 
 # Opportunity of improvement:
 
