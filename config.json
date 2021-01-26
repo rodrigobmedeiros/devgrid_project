@@ -3,5 +3,12 @@
     "headers":{
         "x-rapidapi-key": "48fb4ad818mshaff694231397f7fp1acde1jsn23c32d3bd5b8",
         "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
-        }
+        },
+    "database_info": {"database": "postgres",
+                      "user": "postgres",
+                      "password": "draGao01",
+                      "host": "localhost",
+                      "port": "5432",
+                      "database_name": "weatherdb"}
+
 }
