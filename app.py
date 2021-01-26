@@ -21,14 +21,19 @@ def create_app():
     # Load info to connect to open weather api.
     open_weather_api_config = SetConfig()
 
+    # app configuration
     app = Flask('__name__')
     app.config['SQLALCHEMY_DATABASE_URI'] = db_string
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+    # Correlate the app with the database.
     db = SQLAlchemy(app)
 
+    # Define the migrate to control database and tables modifications.
     migrate = Migrate(app=app, db=db)
 
+
+    # Model used for this API's - ORM with a table database.
     class WeatherData(db.Model):
 
         __tablename__ = 'weatherdata'
@@ -44,6 +49,9 @@ def create_app():
 
     @app.route('/<user_defined_id>', methods=['GET', 'POST'])
     def insert_weather_data(user_defined_id):
+        """
+        Function called by the POST method, updating the database for all cities required by the user.
+        """
 
         error = False
 
@@ -91,6 +99,9 @@ def create_app():
 
     @app.route('/status/<user_defined_id>')
     def calculate_extraction_progress(user_defined_id):
+        """
+        Function called by the GET method to calculate the progress of the data collection.
+        """
 
         with open(f'user_defined/cities/{user_defined_id}.txt') as f:
             cities = f.read()
