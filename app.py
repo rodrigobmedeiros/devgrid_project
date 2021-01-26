@@ -6,7 +6,10 @@ from modules.set_database import SetDatabase
 from modules.transform_weather_data import filter_weather_data
 import os, sys
 import requests
+
+# import time and datetime modules
 from datetime import datetime
+import time
 
 def create_app():
 
@@ -76,6 +79,11 @@ def create_app():
                 print(sys.exc_info())
             finally:
                 db.session.close()
+            
+            # For each loop we're consuming open weather api with a free account what let us make just 10 requests per minute
+            # Because of this, the function will wait for 6 seconds until the next request.
+            # Whats guarantees at least 10 requests per minute (60 / 6 = 10)
+            time.sleep(6)
 
         if error:
             abort(500)
