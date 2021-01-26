@@ -43,7 +43,7 @@ Flask is a python framework used for web development, including API's developmen
 └── requirements.txt
 ```
 
-# migratios:
+# migrations:
 
 Directory responsible to store and control modifications in the databases and tables.
 
@@ -133,15 +133,15 @@ Contain all dependencies to be installed.
 
 # How to use
 
-1 - Install Python 3.7.2
-2 - Install Postgres 13.0
-3 - Install the requirements using the command: `pip install -r requirements.txt`
-4 - Download the repo and unzip it in a local of preference.
-5 - create a database table with the sabe name defined into config.json.
-6 - Update config.json with all your local information.
-7 - Create a user_defined_id.txt inside `user_defined\cities` with city_id's list.
-8 - Define flask envinment variables - for `windows`: SET FLASK_APP=app.py
-9 - run the command: `flask run` in the cmd.
+1) Install Python 3.7.2
+2) Install Postgres 13.0
+3) Install the requirements using the command: `pip install -r requirements.txt`
+4) Download the repo and unzip it in a local of preference.
+5) create a database table with the sabe name defined into config.json.
+6) Update config.json with all your local information.
+7) Create a user_defined_id.txt inside `user_defined\cities` with city_id's list.
+8) Define flask envinment variables - for `windows`: SET FLASK_APP=app.py
+9) run the command: `flask run` in the cmd.
 Obs: For more information access the [Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/)
 
 # Endpoits
