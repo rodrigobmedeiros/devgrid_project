@@ -1,15 +1,14 @@
 from flask import Flask, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from modules.transform_weather_data import filter_weather_data
 from modules.set_config import SetConfig
 from modules.set_database import SetDatabase
-from modules.transform_weather_data import filter_weather_data
-import os, sys
-import requests
-
-# import time and datetime modules
 from datetime import datetime
+import requests
 import time
+import sys
+import os
 
 def create_app():
 
@@ -40,7 +39,7 @@ def create_app():
 
         def __repr__(self):
 
-            return f'<Weather Data - Number: {self.id} - City ID: {self.user_defined_id}>'
+            return f'<Weather Data - user_id: {self.user_defined_id} - collect at: {self.request_time}>'
 
 
     @app.route('/<user_defined_id>', methods=['GET', 'POST'])
@@ -89,6 +88,19 @@ def create_app():
             abort(500)
         else:
             return jsonify({'success': True})
+
+    @app.route('/status/<user_defined_id>')
+    def calculate_extraction_progress(user_defined_id):
+
+        with open(f'user_defined/cities/{user_defined_id}.txt') as f:
+            cities = f.read()
+        cities_id = cities.split('\n')
+
+        collected_cities = WeatherData.query.filter_by(user_defined_id=user_defined_id).all()
+        
+        progress = (len(collected_cities) / len(cities_id)) * 100
+
+        return jsonify({"Progress Status (%)": round(progress, 2)})
 
 
     return app
