@@ -18,3 +18,5 @@ class SetConfig():
 
         self.url_weather_api = config_info["url-weather-api"]
         self.headers = config_info["headers"]
+
+        return None
