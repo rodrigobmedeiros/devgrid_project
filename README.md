@@ -1,4 +1,4 @@
-# devgrid_project
+# Get Weather Data
 Repo used to develop a service to get data from Open Weather API.
 
 # What is this.
